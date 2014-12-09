@@ -19,7 +19,6 @@ $filename = "info.txt"
 $arrow = "=======>"
 Opt("WinTitleMatchMode", 2)
 
-
 Func init()
    If StringInStr(@ScriptFullPath, "exe") Then
 	  Local $name = StringReplace(@ScriptFullPath, ".exe", "")
@@ -44,6 +43,11 @@ Func readFile($file_name)
 EndFunc
 
 Func setWindow()
+   Local $tmp_file = @AutoItExe & ".txt"
+   ConsoleWrite($tmp_file)
+   if FileExists($tmp_file) Then
+	  $filename &= ".txt"
+   EndIf
    Local $data = readFile($filename)
    ;writeFile("mogura", $data)
    Local $data_lines = _StringExplode($data, @CR)
