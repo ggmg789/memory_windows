@@ -45,8 +45,12 @@ EndFunc
 Func setWindow()
    Local $tmp_file = @AutoItExe & ".txt"
    ConsoleWrite($tmp_file)
+   ;ToolTip($tmp_file)
+   ;Sleep(1000)
    if FileExists($tmp_file) Then
-	  $filename &= ".txt"
+	  $filename = $tmp_file
+	  ;ToolTip($filename)
+	  ;Sleep(1000)
    EndIf
    Local $data = readFile($filename)
    ;writeFile("mogura", $data)
